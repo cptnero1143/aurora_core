@@ -1,0 +1,115 @@
+// SETUP TAB
+
+int mode;
+final int game = 1;
+final int gameOver = 3;
+final int intro = 0;//GUI
+final int pause = 2;
+
+void setup() {
+
+ 
+  
+  size (800,800);
+  mode = intro;
+  textAlign(CENTER, CENTER);
+  
+}
+  
+  
+  void draw () { 
+    if (mode == intro) {
+      intro();
+    }
+    else if (mode == game) { game();}
+  
+  else if (mode == gameOver) { gameOver(); }
+  
+  else if (mode == pause) { pause();}
+  
+else { println("Error: Mode= " + mode);
+
+}
+
+}
+  
+  
+  
+// GAME TAB
+
+void game()
+
+{ background(25,12,0);}
+
+void gameClicks() {
+  mode = pause;}
+  
+  // GAMEOVER
+  void gameOver(){
+
+background(0,19,55);
+}
+
+void gameOverClicks() { mode = intro;}
+
+INTRO//
+void intro()
+
+
+{background(212,200,1);
+  
+  
+textAlign(CENTER);
+fill (155,0,0);
+textSize(48);
+
+text("Catch the Ball", width/2 , height/2);
+
+textSize(32);
+color(90,35,35);
+text("Click here", 390, 650);
+
+rect(300,500,400,100)
+
+}
+void introClicks() {
+  if (mouseX > 300 && mouseX < 500 && mouseY > 500 && mouseY < 600)
+mode = game;
+
+//Mouse
+void mouseReleased() {
+  
+  if (mode == intro) {
+    introClicks();}
+    
+    else if( mode == game) { gameClicks();}
+    
+    else if( mode == pause) { pauseClicks();}
+    
+    else if( mode == gameOver) {gameOverClicks();}
+    
+}
+
+//MousePressed
+
+void mousePressed() {
+  
+    if (mode == intro) {
+    introPressed();}
+    
+    else if( mode == game) { gamePressed();}
+    
+    else if( mode == pause) { pausePressed();}
+    
+    else if( mode == gameOver) {gameOverPressed();}
+    
+// PAUSE 
+void pause ()
+
+{background(0,0,199);}
+void pauseClicks() { mode = gameOver;}
+
+
+
+
+ 
